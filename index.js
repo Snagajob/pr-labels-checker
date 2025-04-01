@@ -81,6 +81,10 @@ async function run() {
     if (failMessages.length) {
       core.setFailed(failMessages.join('. '))
 		}
-}
 
+		catch (error) {
+			core.setFailed(error.message)
+		}
+	}
+}
 run()
