@@ -81,30 +81,30 @@ async function run() {
     if (failMessages.length) {
       // update old checks
       for (const id of checkRunIds) {
-        await octokit.checks.update({
-          ...context.repo,
-          check_run_id: id,
-          conclusion: 'failure',
-          output: {
-            title: 'Labels did not pass provided rules',
-            summary: failMessages.join('. ')
-          }
-        })
+        // await octokit.checks.update({
+        //   ...context.repo,
+        //   check_run_id: id,
+        //   conclusion: 'failure',
+        //   output: {
+        //     title: 'Labels did not pass provided rules',
+        //     summary: failMessages.join('. ')
+        //   }
+        // })
       }
 
       core.setFailed(failMessages.join('. '))
     } else {
       // update old checks
       for (const id of checkRunIds) {
-        await octokit.checks.update({
-          ...context.repo,
-          check_run_id: id,
-          conclusion: 'success',
-          output: {
-            title: 'Labels follow all the provided rules',
-            summary: ''
-          }
-        })
+        // await octokit.checks.update({
+        //   ...context.repo,
+        //   check_run_id: id,
+        //   conclusion: 'success',
+        //   output: {
+        //     title: 'Labels follow all the provided rules',
+        //     summary: ''
+        //   }
+        // })
       }
 
       core.setOutput('passed', true)
