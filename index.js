@@ -5,7 +5,7 @@ async function run() {
   try {
     // check if this is running on a pull request
     if (!github.context.payload.pull_request) {
-      return core.setOutput('passed', true)
+      // return core.setOutput('passed', true)
     }
 
     const token = core.getInput('githubToken');
@@ -107,7 +107,7 @@ async function run() {
         // })
       }
 
-      core.setOutput('passed', true)
+      // core.setOutput('passed', true)
     }
   } catch (error) {
     core.setFailed(error.message)
